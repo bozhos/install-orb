@@ -1,5 +1,5 @@
 description: |
-  Executor for Docker. 
+  Executor for Docker.
 parameters:
   version:
     description: >
