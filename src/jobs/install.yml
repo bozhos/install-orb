@@ -15,6 +15,7 @@ parameters:
     default: "deployapp"
     type: string
 steps:
+  - checkout
   - install:
       dotnet_version: << parameters.dotnet_version >>
       app_directory: << parameters.app_directory >>
