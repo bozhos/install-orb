@@ -6,3 +6,4 @@ $SUDO pwd
 $SUDO ls
 $SUDO dotnet publish -o "$DOTNET_APP_DIRECTORY"
 $SUDO zip -r "$DOTNET_APP_DIRECTORY"_"$CIRCLE_SHA1".zip "$DOTNET_APP_DIRECTORY"
+$SUDO ls -l
