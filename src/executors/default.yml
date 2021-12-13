@@ -8,5 +8,5 @@ parameters:
     default: "stable"
 
 docker:
-  - image: cimg/base:<<parameters.version>>
+  - image: cimg/base:stable
 
