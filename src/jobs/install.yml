@@ -12,4 +12,4 @@ parameters:
     type: string
 steps:
   - install:
-      to: << parameters.dotnet_version >>
+      dotnet_version: << parameters.dotnet_version >>
