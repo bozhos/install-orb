@@ -1,0 +1,14 @@
+description: "Install dotnet sdk"
+
+parameters:
+  dotnet_version:
+    description: Select a specific version of the .NET Core framework.
+    default: "3.1"
+    type: string
+steps:
+  - run:
+      name: Install .NET core - <<parameters.dotnet_version>>
+      environment:
+        PARAM_DOTNET_VERSION: <<parameters.dotnet_version>>
+      command: <<include(scripts/install_dotnet.sh)>>
+
