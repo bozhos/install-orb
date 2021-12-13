@@ -19,4 +19,4 @@ steps:
       name: Install .NET core - <<parameters.dotnet_version>> 
       environment:
         PARAM_DOTNET_APP_DIRECTORY: <<parameters.app_directory>>
-      command: <<include(scripts/build_dotnet_app.sh.sh)>>
+      command: <<include(scripts/build_dotnet_app.sh)>>
