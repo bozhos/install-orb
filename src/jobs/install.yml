@@ -10,6 +10,12 @@ parameters:
     description: Select a specific version of the .NET Core framework.
     default: "3.1"
     type: string
+  app_directory:
+    description: Select a specific folder for publishing the app
+    default: "deployapp"
+    type: string
 steps:
   - install:
       dotnet_version: << parameters.dotnet_version >>
+      app_directory: << parameters.app_directory >>
+
