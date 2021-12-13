@@ -11,12 +11,12 @@ parameters:
     type: string
 steps:
   - run:
-      name: Install .NET core - <<parameters.dotnet_version>> 
-      environment:
+      name: Install .NET core - <<parameters.dotnet_version>>
+            environment:
         PARAM_DOTNET_VERSION: <<parameters.dotnet_version>>
       command: <<include(scripts/install_dotnet.sh)>>
   - run:
-      name: Install .NET core - <<parameters.dotnet_version>> 
+      name: Install .NET core - <<parameters.dotnet_version>>
       environment:
         PARAM_DOTNET_APP_DIRECTORY: <<parameters.app_directory>>
       command: <<include(scripts/build_dotnet_app.sh)>>

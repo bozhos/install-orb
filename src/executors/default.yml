@@ -9,4 +9,3 @@ parameters:
 
 docker:
   - image: cimg/base:stable
-
