@@ -20,3 +20,6 @@ steps:
       environment:
         PARAM_DOTNET_APP_DIRECTORY: <<parameters.app_directory>>
       command: <<include(scripts/build_dotnet_app.sh)>>
+  - run:
+      name: Install AWS CLI
+      command: <<include(scripts/install_aws_cli.sh)>>
