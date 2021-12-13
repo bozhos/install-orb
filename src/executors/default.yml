@@ -1,0 +1,11 @@
+description: |
+  Sample executor for Docker.
+parameters:
+  version:
+    description: >
+      Select your version or any of the available tags here: https://hub.docker.com/r/cimg/.
+    type: string
+    default: "stable"
+
+docker:
+  - image: cimg/base:stable
