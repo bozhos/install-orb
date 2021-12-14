@@ -12,11 +12,10 @@ $SUDO ls -l
 PUBLIC_IP=$(curl ipinfo.io/ip)
 echo "$PUBLIC_IP"
 echo "$SSH_LOGIN"
-#$SUDO ~/bin/aws ec2 authorize-security-group-ingress --region "$AWS_DEFAULT_REGION" --group-id "$SG_ID" --protocol tcp --port 22 --cidr "$PUBLIC_IP"/32
 whoami
 $SUDO ~/bin/aws configure set aws_access_key_id "$AWS_ACCESS_KEY" --profile "$AWS_PROFILE"
 $SUDO ~/bin/aws configure set aws_secret_access_key "$AWS_SECRET_ACCESS_KEY" --profile "$AWS_PROFILE"
-$SUDO ~/bin/aws ec2 authorize-security-group-ingress --region "$AWS_DEFAULT_REGION" --group-id "$SG_ID" --protocol tcp --port 22 --cidr "$PUBLIC_IP"/32
+$SUDO ~/bin/aws ec2 authorize-security-group-ingress --region "$AWS_DEFAULT_REGION" --group-id "$SG_ID" --protocol tcp --port 22 --cidr "$PUBLIC_IP"/24
 $SUDO sleep 5
 echo "$EC2_PUBLIC_DNS"
 $SUDO ssh -o StrictHostKeyChecking=no "$SSH_LOGIN"  "sudo systemctl stop test-app.service"
