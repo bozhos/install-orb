@@ -17,4 +17,3 @@ $SUDO ssh -o StrictHostKeyChecking=no "$SSH_LOGIN"  "sudo systemctl stop test-ap
 $SUDO cat "$ZIP_DIR" | ssh -o StrictHostKeyChecking=no "$SSH_LOGIN" "cat > $ZIP_DIR"
 $SUDO ssh -o StrictHostKeyChecking=no "$SSH_LOGIN" "sudo unzip -o $ZIP_DIR -d /opt/"
 $SUDO ssh -o StrictHostKeyChecking=no "$SSH_LOGIN"  "sudo systemctl start test-app.service"
-
