@@ -18,7 +18,7 @@ $SUDO ~/bin/aws configure set aws_secret_access_key "$AWS_SECRET_ACCESS_KEY" --p
 $SUDO ~/bin/aws ec2 authorize-security-group-ingress --region "$AWS_DEFAULT_REGION" --group-id "$SG_ID" --protocol tcp --port 22 --cidr "$PUBLIC_IP"/24
 $SUDO sleep 5
 echo "$EC2_PUBLIC_DNS"
-$SUDO ssh -o StrictHostKeyChecking=no "$SSH_LOGIN"  "sudo systemctl stop test-app.service"
+$SUDO ssh -o StrictHostKeyChecking=no ubuntu@"$EC2_PUBLIC_DNS"  "sudo systemctl stop test-app.service"
 echo "stopped test-app service"
 $SUDO cat "$ZIP_DIR" | "$SUDO" ssh -o StrictHostKeyChecking=no "$SSH_LOGIN" "sudo cat > $ZIP_DIR"
 echo "copied zip to ec2 instance"
