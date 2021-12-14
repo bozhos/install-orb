@@ -1,0 +1,16 @@
+description: "Install .NET SDK and build app"
+
+parameters:
+  app_directory:
+    description: Select a specific folder for publishing the app
+    default: "deployapp"
+    type: string
+steps:
+  - run:
+      name: Install AWS CLI
+      command: <<include(scripts/install_aws_cli.sh)>>
+  - run:
+      name: Build .NET app in directory <<parameters.app_directory>>
+      environment:
+        PARAM_DOTNET_APP_DIRECTORY: <<parameters.app_directory>>
+      command: <<include(scripts/deploy_on_aws.sh)>>
