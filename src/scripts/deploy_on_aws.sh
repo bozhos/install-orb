@@ -20,6 +20,10 @@ $SUDO ~/bin/aws ec2 authorize-security-group-ingress --region "$AWS_DEFAULT_REGI
 $SUDO sleep 5
 echo "$EC2_PUBLIC_DNS"
 $SUDO ssh -o StrictHostKeyChecking=no "$SSH_LOGIN"  "sudo systemctl stop test-app.service"
-$SUDO cat "$ZIP_DIR" | ssh -o StrictHostKeyChecking=no "$SSH_LOGIN" "cat > $ZIP_DIR"
+echo "stopped test-app service"
+$SUDO cat "$ZIP_DIR" | "$SUDO" ssh -o StrictHostKeyChecking=no "$SSH_LOGIN" "sudo cat > $ZIP_DIR"
+echo "copied zip to ec2 instance"
 $SUDO ssh -o StrictHostKeyChecking=no "$SSH_LOGIN" "sudo unzip -o $ZIP_DIR -d /opt/"
+echo "unzipped zip to /opt/"
 $SUDO ssh -o StrictHostKeyChecking=no "$SSH_LOGIN"  "sudo systemctl start test-app.service"
+echo "started test-app service"
