@@ -1,5 +1,6 @@
 if [[ $EUID == 0 ]]; then export SUDO=""; else export SUDO="sudo"; fi
 
+
 export DOTNET_APP_DIRECTORY="$PARAM_DOTNET_APP_DIRECTORY"
 export ZIP_DIR="${DOTNET_APP_DIRECTORY}_${CIRCLE_SHA1}.zip"
 export SSH_LOGIN="${EC2_USERNAME}_${EC2_PUBLIC_DNS}"
