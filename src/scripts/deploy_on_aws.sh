@@ -13,7 +13,7 @@ echo "$PUBLIC_IP"
 $SUDO bin/aws ec2 authorize-security-group-ingress --region "$AWS_DEFAULT_REGION" --group-id "$SG_ID" --protocol tcp --port 22 --cidr "$PUBLIC_IP"/32
 $SUDO sleep 5
 $SUDO ssh -o StrictHostKeyChecking=no "$SSH_LOGIN"  "sudo systemctl stop test-app.service"
-$SUDO cat "$ZIP_DIR".zip | ssh -o StrictHostKeyChecking=no "$SSH_LOGIN" 'cat > "$ZIP_DIR".zip'
-$SUDO ssh -o StrictHostKeyChecking=no "$SSH_LOGIN" 'sudo unzip -o "$ZIP_DIR".zip -d /opt/'
+$SUDO cat "$ZIP_DIR".zip | ssh -o StrictHostKeyChecking=no "$SSH_LOGIN" 'cat > $ZIP_DIR.zip'
+$SUDO ssh -o StrictHostKeyChecking=no "$SSH_LOGIN" 'sudo unzip -o $ZIP_DIR.zip -d /opt/'
 $SUDO ssh -o StrictHostKeyChecking=no "$SSH_LOGIN"  "sudo systemctl start test-app.service"
 
