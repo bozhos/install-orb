@@ -10,4 +10,4 @@ $SUDO apt-get update
 $SUDO apt-get install -y "dotnet-sdk-$DOTNET_VERSION"
 $SUDO apt-get install -y zip gzip tar
 $SUDO pwd
-$SUDO ls
+$SUDO ls -la
